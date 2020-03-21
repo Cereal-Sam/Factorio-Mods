@@ -12,6 +12,16 @@ data.raw.tile["deepwater"].variants = data.raw.tile["deepwater-green"].variants
 data.raw.tile["water"].map_color = data.raw.tile["water-green"].map_color
 data.raw.tile["deepwater"].map_color = data.raw.tile["deepwater-green"].map_color
 
+data.raw.tile["water"].effect = data.raw.tile["water-green"].effect
+data.raw.tile["deepwater"].effect = data.raw.tile["deepwater-green"].effect
+
+data.raw.tile["water"].effect_color = data.raw.tile["water-green"].effect_color
+data.raw.tile["deepwater"].effect_color = data.raw.tile["deepwater-green"].effect_color
+
+data.raw.tile["water"].transitions = data.raw.tile["water-green"].transitions
+data.raw.tile["deepwater"].transitions = data.raw.tile["deepwater-green"].transitions
+
+--log(serpent.block(data.raw.tile["water"]))
 
 -- No free Water!
 
