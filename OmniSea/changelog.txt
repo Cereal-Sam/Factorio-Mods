@@ -1,0 +1,180 @@
+---------------------------------------------------------------------------------------------------
+Version: 3.0.1
+	
+	Changes:
+		-Added Thumbnail.png
+		-Clarified the starter tech description
+---------------------------------------------------------------------------------------------------
+Version: 3.0.0
+	
+	Changes:
+		-Initial Update to 0.17
+		-Replaced the Omnicompressor graphics
+		-Added copper-tungsten and nitinol pipe recipes to the omnidrill
+---------------------------------------------------------------------------------------------------
+Version: 2.3.2
+	
+	Changes:
+		-Increased the Compressors Energy usage
+		-Reduced Omnidensators Module Slots to 1
+---------------------------------------------------------------------------------------------------
+Version: 2.3.1 (CARE: BREAKS YOUR OMNIDRILL SETUPS!!!)
+	
+	Changes:
+		-Completely reworked the Omnidrill recipes
+		-Added an "Omnicompressor" which turns every "gas" type liquid into Coromnic
+			Vapour, which replaces steam in the Omnidrill
+		-Added recipes and researches for all Bob큦 Mod pipes to the Omnidrill
+		-Increased the crafting speed of the Omnidrills and Omnidensators to better fit
+			with other Omni-Buildings
+		-Increased the recipe duration for both buildings to compensate the crafting
+			speed changes
+---------------------------------------------------------------------------------------------------
+Version: 2.2.11
+	
+	Changes:
+		-Disabled the Wood Mutation recipe from omniwood
+---------------------------------------------------------------------------------------------------
+Version: 2.2.10
+	
+	Changes:
+		-Removed the Boiler,Steam Engine and Electric Mining Drill recipe Unlock from the 4. Tutorial tech if Omnienergy is installed
+---------------------------------------------------------------------------------------------------
+Version: 2.2.9
+	
+	Changes:
+		-Code cleanup
+---------------------------------------------------------------------------------------------------
+Version: 2.2.8
+	
+	Changes:
+		-Fixed that the Omnitor Lab didnt accept any fuel
+		-Fixed that the vanilla Lab unlocks with Startup-3 tech when omnienergy is installed
+		-Omnienergy큦 Burner generator now unlocks with the 4. tutorial tech
+		-Changed Pretomnic waste water ratios so you end up with a surplus of normal water at
+		 the end of the Hypomnic water extraction chain
+---------------------------------------------------------------------------------------------------
+Version: 2.2.7
+	
+	Changes:
+		-Nerfed Bob큦 Enriched fuel blocks fuel value
+		-Set the fuel category of burner entities back to chemical if omni_energy is installed
+---------------------------------------------------------------------------------------------------
+Version: 2.2.3
+	
+	Changes:
+		-Fixed that viscous mud water accidently required viscous mud water instead of omnic water
+---------------------------------------------------------------------------------------------------
+Version: 2.2.2
+	
+	Changes:
+		-Fixed that the Omnidensator recipe was disabled when SCT was enabled
+---------------------------------------------------------------------------------------------------
+Version: 2.2.0
+	
+	Changes:
+		-Rebalanced Recipe and Tech costs:
+		-Buffed the amount of Omnite you get in the more advanced recipe chains
+		-Increased Viscous Mud Water and Hypomnic Water research costs.
+---------------------------------------------------------------------------------------------------
+Version: 2.1.8
+	
+	Changes:
+		-Full Omnimatter Energy support
+		-Internal rewrite
+---------------------------------------------------------------------------------------------------
+Version: 2.1.6
+	
+	Changes:
+		-Fixed omniwood/omniwater compat and possible crashes with some combinations of those
+---------------------------------------------------------------------------------------------------
+Version: 2.1.4
+	
+	Changes:
+		-Removed Science Cost Tweaker as hard dependency
+		-You can now play without SCT, which isnt compatible with Omni큦 Science/Research Mods
+---------------------------------------------------------------------------------------------------
+Version: 2.1.3
+	
+	Changes:
+		-Omniwood should be fully compatible now!
+		-Added an alternative recipe for omnialgaes
+---------------------------------------------------------------------------------------------------
+Version: 2.1.2
+	
+	Changes:
+		-Fixed a possible research cycle if Omniwater is present
+---------------------------------------------------------------------------------------------------
+Version: 2.1.1
+	
+	Changes:
+		-Added a research chain for Viscous Mud Water
+		-Removed Angels Seafloor pump
+---------------------------------------------------------------------------------------------------
+Version: 2.1.0
+	
+	Changes:
+		-Rebalanced all mid/endgame recipes zo be more efficient
+		-Added Hydrosalinic Water
+		-Added RGB values to each liquid
+---------------------------------------------------------------------------------------------------
+Version: 2.0.5
+	
+	Changes:
+		-Declared Omniwood as incompatible to avoid further confusion
+---------------------------------------------------------------------------------------------------
+Version: 2.0.4
+	
+	Changes:
+		-Complete Rewrite, this will mess up saves!
+		-Complete new production chains:
+		-All the Water arround you is not usable, you depend on condensating Omnic
+		 Water very inefficiently from the air or drilling it deep out of the ground
+		 and process it!
+		-Added the "Omnidensator" and "Omnidrill"
+		-Added a bunch of liquids, recipes and researches to process Omnic Water
+---------------------------------------------------------------------------------------------------
+Version: 1.3.1
+	
+	Changes:
+		-Updated to the latest version of Omnimatter
+---------------------------------------------------------------------------------------------------
+Version: 1.3.0
+	
+	Changes:
+		-Updated to Omnimatter 2.0.0
+---------------------------------------------------------------------------------------------------
+Version: 1.2.4
+	
+	Changes:
+		-Updated to the latest SeaBlock Pack
+---------------------------------------------------------------------------------------------------
+Version: 1.2.3
+	
+	Changes:
+		-Fixed that recipe changes werent applied on compressed recipes
+---------------------------------------------------------------------------------------------------
+Version: 1.2.2
+	
+	Changes:  
+		-Updated for Omnimatter 1.4.0 (use 1.2.1 for older Omnimatter versions!)
+---------------------------------------------------------------------------------------------------
+Version: 1.2.1
+	
+	Changes:  
+		-Fixed research order to avoid getting stuck in the tutorial 
+---------------------------------------------------------------------------------------------------
+Version: 1.2.0
+	
+	Changes:  
+		-Updated for Factorio 0.16
+		-Disabled all Coal extractions from Omnimatter
+		-Removed the fuel value of Omnite
+		-Added a recipe for Mineralized water crystallization
+		-Moved the Omnimatter researches behind the tutorial researches
+---------------------------------------------------------------------------------------------------
+Version: 1.1.0
+	
+	Changes:  
+		-Added support for Omnimatter_fluid
+---------------------------------------------------------------------------------------------------
