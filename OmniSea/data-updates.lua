@@ -238,9 +238,8 @@ end
 
 for i, rec in pairs(data.raw.recipe) do		
 	
-	if rec.category == "angels-chemical-void" then
+	if rec.category == "angels-chemical-void" and string.find(rec.name,"gas") then
 	
-
 	data:extend(
 		{
 		{
