@@ -174,8 +174,8 @@ data:extend(
 		module_slots = 3
 	},
     allowed_effects = {"consumption", "speed", "productivity", "pollution"},
-	result_inventory_size = 1,
-	source_inventory_size = 1,
+	result_inventory_size = 0,
+	source_inventory_size = 0,
 	crafting_speed = 2,
 	resistances =
 	{
