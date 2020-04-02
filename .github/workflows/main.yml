@@ -8,7 +8,7 @@ jobs:
       - name: lint
         uses: Roang-zero1/factorio-mod-luacheck@master
         with:
-          LUACHECKRC_URL: https://raw.githubusercontent.com/Nexela/Factorio-luacheckrc/0.17/.luacheckrc
+          LUACHECKRC_URL: https://raw.githubusercontent.com/Nexela/Factorio-luacheckrc/master/.luacheckrc
   release-github:
     runs-on: ubuntu-latest
     needs: [lint]
@@ -26,21 +26,11 @@ jobs:
         uses: actions/bin/filter@3c0b4f0e63ea54ea5df2914b4fabf383368cd0da
         with:
           args: tag
+          mod_base_dir: /master
       - name: Upload GitHub artifacts
         uses: Roang-zero1/github-upload-release-artifacts-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           args: dist/
-  release-modportal:
-    runs-on: ubuntu-latest
-    needs: [lint]
-    if: startsWith(github.ref, 'refs/tags/')
-    steps:
-      - name: Create Factorio mod package
-        uses: Roang-zero1/factorio-mod-package@master
-      - name: Factorio release
-        uses: Roang-zero1/factorio-create-release-action@master
-        with:
-          factorio_password: ${{ secrets.FACTORIO_PASSWORD }}
-          factorio_user: ${{ secrets.FACTORIO_USER }}
+
