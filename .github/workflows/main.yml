@@ -1,8 +1,12 @@
 on: push
-name: Check & Release
+name: Publish
 jobs:
-  release:
+  publish:
     runs-on: ubuntu-latest
     steps:
-      - name: Create Factorio mod package
-        uses: Samuel2507/OmniSea@master
+    - uses: actions/checkout@master
+    - name: Publish Mod
+      uses: shanemadden/factorio-mod-portal-publish@stable
+      env:
+        FACTORIO_PASSWORD: ${{ secrets.FACTORIO_PASSWORD }}
+        FACTORIO_USER: ${{ secrets.FACTORIO_USER }}
