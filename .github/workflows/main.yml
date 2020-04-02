@@ -1,12 +1,8 @@
 on: push
-name: Publish
+name: Check & Release
 jobs:
-  publish:
+  release:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-    - name: Publish Mod
-      uses: shanemadden/factorio-mod-portal-publish@stable
-      env:
-        FACTORIO_PASSWORD: ${{ secrets.FACTORIO_PASSWORD }}
-        FACTORIO_USER: ${{ secrets.FACTORIO_USER }}
+      - name: Create Factorio mod package
+        uses: Roang-zero1/factorio-mod-package@master
