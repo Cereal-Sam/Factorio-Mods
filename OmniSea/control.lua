@@ -59,7 +59,6 @@ function adjustContent(chest)
 		{"stone", 50},
 		{"small-electric-pole", 50},
 		{"small-lamp", 12},
-
 		{"iron-plate", 1200},
 		{"basic-circuit-board", 200},
 		{"stone-pipe", 100},
@@ -72,7 +71,8 @@ function adjustContent(chest)
 		{"pipe-to-ground", 2},
 		{"electronic-circuit", 10},
 		{"wind-turbine-2", 40},
---		{"omnidensator-1", 1},
+--		{"omnidensator-1", 1}, --already in inventory
+		{"crystallizer", 1},
 		{"omnitractor-1", 1},
 		{"burner-omni-furnace", 1}
 

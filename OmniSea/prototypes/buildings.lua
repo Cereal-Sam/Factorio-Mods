@@ -5,7 +5,7 @@ BuildGen:create("OmniSea","omnidensator-1"):
 	setFluidBox("XXXXX.XXXXX.XXXXX.XXXXX.XXKXX"):
 	setIngredients({"iron-plate",10},{"iron-stick",5},{"copper-pipe",5},{"stone-brick",5},{"basic-circuit-board",5}):
 	setSpeed(1.0):
-	setUsage(200):
+	setUsage(150):
 	setCrafting("omnidensating"):
 	setSubgroup("omnisea-omnidensating"):
 	setModSlots(1):

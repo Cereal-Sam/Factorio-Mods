@@ -31,11 +31,8 @@ data.raw.recipe["offshore-pump"].enabled = false
 --Remove Angels Seafloor pump and add a prereq to washing-1
 
 omni.lib.remove_unlock_recipe("water-washing-1", "seafloor-pump")
-omni.lib.add_prerequisite("water-washing-1", "omnitech-viscous-mud-water-omnitraction-1")
-
 
 --Edit startup tech
-
 -- Startup 1
 data.raw.tool["sb-angelsore3-tool"].icon = "__omnimatter__/graphics/icons/omnite.png"
 data.raw.tool["sb-angelsore3-tool"].localised_name = {"item-name.omnite"}
