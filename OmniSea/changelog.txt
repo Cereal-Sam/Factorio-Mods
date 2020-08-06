@@ -1,6 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 3.18.1
+  Changes:
+    - Updated to current versions of Seablock and Omnimatter
+    - Omnimatters coal extractions are now enabled
+---------------------------------------------------------------------------------------------------
 Version: 3.18.0
-  Features:
+  Changes:
     - Updated to Factorio version 0.18
 ---------------------------------------------------------------------------------------------------
 Version: 3.0.1
@@ -19,7 +24,7 @@ Version: 2.3.2
     - Increased the Compressors Energy usage
     - Reduced Omnidensators Module Slots to 1
 ---------------------------------------------------------------------------------------------------
-Version: 2.3.1 (BREAKS YOUR OMNIDRILL SETUPS!!!)
+Version: 2.3.1
   Features:
     - Completely reworked the Omnidrill recipes
     - Added an "Omnicompressor" which turns every "gas" type liquid into Coromnic Vapour, which replaces steam in the Omnidrill
