@@ -57,11 +57,11 @@ local ent_all = {
 	"wall"
 }
 
---Analyse all recipes and add them to the marathon table
+--Analyse all recipes and add them to the e_e table
 for _, rec in pairs(data.raw.recipe) do
 
-	local ing = marathon.get_ings(rec)
-	local res = marathon.get_res(rec)
+	local ing = e_e.get_ings(rec)
+	local res = e_e.get_res(rec)
 
 
 	--Exclude creative mode recipes or recipes with 0 ingredients
@@ -72,16 +72,16 @@ for _, rec in pairs(data.raw.recipe) do
 
 	for _, result in pairs(res) do
 		--Add recipes that have a placable entity as result
-		if marathon.find_prototype(result.name, ent_all) then
-			marathon.include_recipe(rec.name)
+		if e_e.find_prototype(result.name, ent_all) then
+			e_e.include_recipe(rec.name)
 			--log("Include recipe: "..rec.name)
 			goto cont
 		end
 	end
 
 	--If the affect_science setting is true, add recipes that are in the science pack subgroup (have a science pack as result)
-	if marathon.affect_science and rec.subgroup == "science-pack" then
-		marathon.include_recipe(rec.name)
+	if e_e.affect_science and rec.subgroup == "science-pack" then
+		e_e.include_recipe(rec.name)
 		--log("Include recipe: "..rec.name)
 		goto cont
 	end
@@ -90,7 +90,7 @@ for _, rec in pairs(data.raw.recipe) do
 end
 
 --If progression mode is active, get tech progression tiers and add them to recipes
-if marathon.prog_mode then
+if e_e.prog_mode then
 	--Add all techs to a table to work through
 	local remaining_techs = {}
 	for _,tech in pairs(data.raw.technology) do
@@ -136,9 +136,9 @@ if marathon.prog_mode then
 			local tech = data.raw.technology[techname.name]
 			if techname.remove == true and tech.effects then
 				for _,effect in pairs(tech.effects) do
-					if effect.type == "unlock-recipe" and marathon.included_recipes[effect.recipe] then
-						marathon.included_recipes[effect.recipe].progression_tier = index
-						marathon.tech_tiers[tech.name] = index
+					if effect.type == "unlock-recipe" and e_e.included_recipes[effect.recipe] then
+						e_e.included_recipes[effect.recipe].progression_tier = index
+						e_e.tech_tiers[tech.name] = index
 						--log("Adding tech "..tech.name.." with a tier of "..index)
 					end
 				end

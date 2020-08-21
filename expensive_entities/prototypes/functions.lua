@@ -1,5 +1,5 @@
 --Misc functions
-function marathon.remove_from_table(tab, element)
+function e_e.remove_from_table(tab, element)
     if tab and element then
         local found = false
 		for i, x in pairs(tab) do
@@ -13,7 +13,7 @@ function marathon.remove_from_table(tab, element)
     end
 end
 
-function marathon.is_in_table(tab, element)
+function e_e.is_in_table(tab, element)
     if tab and element then
         local found = false
 		for _, x in pairs(tab) do
@@ -29,7 +29,7 @@ end
 --Recipe functions
 
 --Returns a standardised copy of all ingredients, prefers recipe.expensive
-function marathon.get_ings(recipe)
+function e_e.get_ings(recipe)
     local ing = {}
 
     if recipe.ingredients then
@@ -63,7 +63,7 @@ function marathon.get_ings(recipe)
 end
 
 --Returns a standardised copy of all results, prefers recipe.expensive
-function marathon.get_res(recipe)
+function e_e.get_res(recipe)
     local res = {}
     if recipe.result then
         res[#res+1] = {type = "item", name = recipe.result, amount = recipe.result_count or 1}
@@ -100,7 +100,7 @@ function marathon.get_res(recipe)
     return table.deepcopy(res)
 end
 
-function marathon.standardise(recipe)
+function e_e.standardise(recipe)
     if recipe then
         -- log("Start stand")
         -- log(serpent.block(recipe))
@@ -108,7 +108,7 @@ function marathon.standardise(recipe)
         if not recipe.normal then recipe.normal = {} end
 
         --Ingredients
-        local ings = marathon.get_ings(recipe)
+        local ings = e_e.get_ings(recipe)
         --Always overwrite ingredients to ensure that all have tags
         recipe.normal.ingredients = table.deepcopy(ings)
         recipe.expensive.ingredients = table.deepcopy(ings)
@@ -124,7 +124,7 @@ function marathon.standardise(recipe)
             recipe.result_count = nil
 
         elseif recipe.results then
-            local res = marathon.get_res(recipe)
+            local res = e_e.get_res(recipe)
             recipe.normal.results = table.deepcopy(res)
             recipe.expensive.results = table.deepcopy(res)
             recipe.results = nil
@@ -137,7 +137,7 @@ function marathon.standardise(recipe)
 end
 
 --Analyse functions
-function marathon.find_prototype(name, proto_list)
+function e_e.find_prototype(name, proto_list)
 	if type(name)=="table" then return name elseif type(name)~="string" then return nil end
 	for _, p in pairs(proto_list) do
 		if data.raw[p][name] then return data.raw[p][name] end
@@ -145,9 +145,9 @@ function marathon.find_prototype(name, proto_list)
 	return nil
 end
 
-function marathon.include_recipe(rec_name)
+function e_e.include_recipe(rec_name)
     if rec_name then
-        marathon.included_recipes[rec_name] =
+        e_e.included_recipes[rec_name] =
         {
         name = rec_name,
         linear = false,
@@ -158,35 +158,35 @@ function marathon.include_recipe(rec_name)
     end
 end
 
---Marathon applying functions
-function marathon.apply_linear(recipe, mult)
+--e_e applying functions
+function e_e.apply_linear(recipe, mult)
     if recipe then
         for _, ing in pairs(recipe.expensive.ingredients) do
-            if not (marathon.exclude_marath_ings and marathon.included_recipes[ing.name]) then
+            if not (e_e.exclude_exp_ings and e_e.included_recipes[ing.name]) then
                 ing.amount = ing.amount * mult
                 ing.amount = math.floor(math.min(ing.amount, 64444))
             end
         end
-        marathon.included_recipes[recipe.name].linear = true
+        e_e.included_recipes[recipe.name].linear = true
     end
 end
 
-function marathon.apply_progression(recipe, constant)
+function e_e.apply_progression(recipe, constant)
     if recipe then
-        local tier = marathon.included_recipes[recipe.name].progression_tier
+        local tier = e_e.included_recipes[recipe.name].progression_tier
         local mult = 1 + (tier*constant)
         --log("Applying Progression multiplier of "..mult.." to recipe "..recipe.name)
         for _, ing in pairs(recipe.expensive.ingredients) do
-            if not (marathon.exclude_marath_ings and marathon.included_recipes[ing.name]) then
+            if not (e_e.exclude_exp_ings and e_e.included_recipes[ing.name]) then
                 ing.amount = ing.amount * mult
                 ing.amount = math.floor(math.min(ing.amount, 64444))
             end
         end
-        marathon.included_recipes[recipe.name].progression = true
+        e_e.included_recipes[recipe.name].progression = true
     end
 end
 
--- function marathon.apply_exponential(recipe, cnst_string)
+-- function e_e.apply_exponential(recipe, cnst_string)
 --     if recipe then
 --         local expo = tonumber(cnst_string)
 --         local ingredient = {name = "ingredients", total = 0, count = 0, component={}}
@@ -199,7 +199,7 @@ end
 
 --         --Analyse ingredients
 --         for j,ing in pairs(recipe.expensive.ingredients) do
---             if not (marathon.exclude_marath_ings and marathon.included_recipes[ing.name]) then
+--             if not (e_e.exclude_exp_ings and e_e.included_recipes[ing.name]) then
 --                 local am=ing.amount
                     
 -- 				ingredient.component[ing.name]={amount = am, nr = j}
@@ -294,7 +294,7 @@ end
 -- 			end
 -- 		end
             
---         marathon.included_recipes[recipe.name].exponential = true
+--         e_e.included_recipes[recipe.name].exponential = true
 --         --log(serpent.block(recipe))
 --     end
 -- end

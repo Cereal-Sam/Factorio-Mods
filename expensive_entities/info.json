@@ -1,0 +1,10 @@
+{
+"name":"expensive_entities",
+"version":"1.0.0",
+"title":"Expensive Entities",
+"author":"Cereal Sam",
+"description":"Adds options to make all end products or certain groups more expensive",
+"factorio_version":"1.0",
+"dependencies":[
+	"base"
+]}
