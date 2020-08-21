@@ -1,0 +1,10 @@
+{
+"name":"marathon_mode",
+"version":"1.0.0",
+"title":"Marathon Mode",
+"author":"Cereal Sam",
+"description":"Adds various options to make all end products or certain groups more expensive",
+"factorio_version":"1.0",
+"dependencies":[
+	"base"
+]}
