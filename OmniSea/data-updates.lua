@@ -114,7 +114,7 @@ local startuptechs = {
   ['angels-copper-smelting-1'] = true,
   ['angels-coal-processing'] = true,
   ['bio-wood-processing-2'] = true,
-  ['basic-omnitraction'] = true,
+  ['omnitech-basic-omnitraction'] = true,
   ['basic-automation'] = true,
   ['simple-automation'] = true,
   ['landfill'] = true
@@ -145,11 +145,11 @@ for _, pipes in pairs(data.raw.item) do
 	if pipes.subgroup == "pipe" then
 		if pipes.name == "stone-pipe" then tier = 1
 		elseif pipes.name == "pipe" or pipes.name == "copper-pipe" 
-			then tier = 2 techreq =	{"omnidrill-1"}		-- +40%
+			then tier = 2 techreq =	{"omnitech-omnidrill-1"}		-- +40%
 		elseif pipes.name == "steel-pipe" or pipes.name == "plastic-pipe" or pipes.name == "bronze-pipe" 
-			then tier = 3 techreq =	{"omnidrill-2"}		-- +15%
+			then tier = 3 techreq =	{"omnitech-omnidrill-2"}		-- +15%
 		elseif pipes.name == "brass-pipe" or pipes.name == "ceramic-pipe" 
-			then tier = 4 techreq =	{"omnidrill-3"}		-- +15%
+			then tier = 4 techreq =	{"omnitech-omnidrill-3"}		-- +15%
 		elseif pipes.name == "titanium-pipe" 
 			then tier = 5 techreq =	{"drilling-equipment-brass-pipe","drilling-equipment-ceramic-pipe"}		-- +15%
 		elseif pipes.name == "tungsten-pipe" or pipes.name == "nitinol-pipe" 
@@ -177,7 +177,7 @@ for _, pipes in pairs(data.raw.item) do
 		setOrder(tier.."-"..pipes.order):
 		marathon()
 		if tier == 1 then
-			drillrec:setTechName("omnidrill-1")
+			drillrec:setTechName("omnitech-omnidrill-1")
 		else
 			drillrec:setTechName("drilling-equipment-"..pipes.name):
 			setTechPacks(2+math.floor(tier/2)):
@@ -233,6 +233,6 @@ for i, rec in pairs(data.raw.recipe) do
 		},
 		}
 		)
-		table.insert( data.raw["technology"]["omnidrill-1"].effects, { type = "unlock-recipe", recipe = "omnisea-void-"..rec.name	} )
+		table.insert( data.raw["technology"]["omnitech-omnidrill-1"].effects, { type = "unlock-recipe", recipe = "omnisea-void-"..rec.name	} )
 	end
 end

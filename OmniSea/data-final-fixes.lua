@@ -7,7 +7,7 @@ RecGen:import("sb-water-mineralized-crystallization"):setEnabled(false):extend()
 --Final energy compat
 if mods["omnimatter_energy"] then
 	--Energy adds anabracity as prereq for everything without prereqs, remove that rom sb-startup-1 to avoid loops
-	omni.lib.remove_prerequisite("sb-startup1", "anbaricity")
+	omni.lib.remove_prerequisite("sb-startup1", "omnitech-anbaricity")
 	omni.lib.remove_prerequisite("sct-lab-t2", "electronics")
 	
 else
