@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 4.0.1
+Date: 2020.09.15
+  Changes:
+    - You start with 2 electric omnitractors instead of 1 burner and 1 electric now
+    - You start with 1 electric omniphlog instead of 1 burner omniphlog now
+  Bugfixes:
+    - Fixed an issue when starting a new save without KS-Power
+    - Fixed that you start with the wrong type of landfill when playing with landfill painting
+---------------------------------------------------------------------------------------------------
 Version: 4.0.0
 Date: 2020.09.15
   Changes:
