@@ -43,12 +43,12 @@ BuildGen:create("OmniSea","omnidensator-2"):
 		scale = 1.35,
         animation_speed = 0.5
     }):
-	setTechName("omnidensator-2"):
+	setTechName("omnitech-omnidensator-2"):
 	setTechIcon("OmniSea","omnidensator-2-tech"):
 	setTechPacks(2):
 	setTechCost(150):
 	setTechTime(15):
-	setTechPrereq("omnitractor-electric-1"):
+	setTechPrereq("omnitech-omnitractor-electric-1"):
 	setEnabled(false):
 	extend()
 	
@@ -74,12 +74,12 @@ BuildGen:create("OmniSea","omnidrill-1"):
 		scale = 1.67,
         animation_speed = 0.5
     }):
-	setTechName("omnidrill-1"):
+	setTechName("omnitech-omnidrill-1"):
 	setTechIcon("OmniSea","omnidrill-1-tech"):
 	setTechPacks(3):
 	setTechCost(200):
 	setTechTime(15):
-	setTechPrereq({"omnidensator-2","omnitractor-electric-3"}):
+	setTechPrereq({"omnitech-omnidensator-2","omnitech-omnitractor-electric-3"}):
 	setEnabled(false):
 	extend()
 	
@@ -102,12 +102,12 @@ BuildGen:create("OmniSea","omnidrill-2"):
 		scale = 1.67,
         animation_speed = 0.5
     }):
-	setTechName("omnidrill-2"):
+	setTechName("omnitech-omnidrill-2"):
 	setTechIcon("OmniSea","omnidrill-2-tech"):
 	setTechPacks(4):
 	setTechCost(400):
 	setTechTime(15):
-	setTechPrereq({"omnidrill-1","omnitractor-electric-4"}):
+	setTechPrereq({"omnitech-omnidrill-1","omnitech-omnitractor-electric-4"}):
 	setEnabled(false):
 	extend()
 	
@@ -130,12 +130,12 @@ BuildGen:create("OmniSea","omnidrill-3"):
 		scale = 1.67,
         animation_speed = 0.5
     }):
-	setTechName("omnidrill-3"):
+	setTechName("omnitech-omnidrill-3"):
 	setTechIcon("OmniSea","omnidrill-3-tech"):
 	setTechPacks(5):
 	setTechCost(300):
 	setTechTime(15):
-	setTechPrereq({"omnidrill-2","omnitractor-electric-5"}):
+	setTechPrereq({"omnitech-omnidrill-2","omnitech-omnitractor-electric-5"}):
 	setEnabled(false):
 	extend()
 	
@@ -250,6 +250,6 @@ data:extend(
 	},
 }
 )
-table.insert( data.raw["technology"]["omnidrill-1"].effects, { type = "unlock-recipe", recipe = "omnicompressor"	} )
+omni.lib.add_unlock_recipe("omnitech-omnidrill-1","omnicompressor")
 
 

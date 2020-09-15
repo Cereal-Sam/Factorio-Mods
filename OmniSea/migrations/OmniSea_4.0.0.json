@@ -1,0 +1,20 @@
+{
+  "technology":
+  [
+    ["omnidrill-1", "omnitech-omnidrill-1"],
+    ["omnidrill-2", "omnitech-omnidrill-2"],
+    ["omnidrill-3", "omnitech-omnidrill-3"],
+    ["omnidensator-2", "omnitech-omnidensator-2"],
+    ["drilling-equipment-copper-pipe", "omnitech-drilling-equipment-copper-pipe"],
+    ["drilling-equipment-steel-pipe", "omnitech-drilling-equipment-steel-pipe"],
+    ["drilling-equipment-plastic-pipe", "omnitech-drilling-equipment-plastic-pipe"],
+    ["drilling-equipment-bronze-pipe", "omnitech-drilling-equipment-bronze-pipe"],
+    ["drilling-equipment-brass-pipe", "omnitech-drilling-equipment-brass-pipe"],
+    ["drilling-equipment-ceramic-pipe", "omnitech-drilling-equipment-ceramic-pipe"],
+    ["drilling-equipment-titanium-pipe", "omnitech-drilling-equipment-titanium-pipe"],
+    ["drilling-equipment-tungsten-pipe", "omnitech-drilling-equipment-tungsten-pipe"],
+    ["drilling-equipment-nitinol-pipe", "omnitech-drilling-equipment-nitinol-pipe"],
+    ["drilling-equipment-copper-tungsten-pipe", "omnitech-drilling-equipment-copper-tungsten-pipe"]
+
+  ]
+}
