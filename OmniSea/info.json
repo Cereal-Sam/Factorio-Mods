@@ -1,10 +1,10 @@
 {
 "name":"OmniSea",
-"version":"3.18.1",
+"version":"4.0.0",
 "title":"Sea Block Omnimatter compatibility",
 "author":"Samuel2507",
 "description":"Adds a progression system for Omni-Mods in SeaBlock",
-"factorio_version":"0.18",
+"factorio_version":"1.0",
 "dependencies":[
 	"base",
 	"omnilib",
