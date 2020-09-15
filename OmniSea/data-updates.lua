@@ -70,11 +70,11 @@ omni.lib.remove_unlock_recipe(tech4 , "omnic-water-condensation")
 data.raw.recipe["omnic-water-condensation"].normal.enabled = true
 data.raw.recipe["omnic-water-condensation"].expensive.enabled = true
 
---Omniwater/Omniwood compat:Avoid Research cycle
-if data.raw.technology["omniwaste"] then
-    data.raw.technology["omniwaste"].prerequisites = nil 
-    data.raw.technology["omniwaste"].prerequisites = {tech4}  
-end
+-- --Omniwater/Omniwood compat:Avoid Research cycle
+-- if data.raw.technology["omniwaste"] then
+--     data.raw.technology["omniwaste"].prerequisites = nil 
+--     data.raw.technology["omniwaste"].prerequisites = {tech4}  
+-- end
 
 --Omniwood compat: Add an early low-yield omnialgae recipe and fix the fuel value of wood
 if mods["omnimatter_wood"] then 
@@ -91,7 +91,7 @@ if mods["omnimatter_wood"] then
 	data.raw.item["wood"].fuel_value = "6MJ"
 	data.raw.item["omniwood"].fuel_value = "1MJ"
 
-	TechGen:importIf("omniwaste"):removeUnlocks("wasteMutation"):extend()
+	--TechGen:importIf("omniwaste"):removeUnlocks("wasteMutation"):extend()
 end
 
 local startuptechs = {
@@ -116,7 +116,7 @@ local startuptechs = {
   ['bio-wood-processing-2'] = true,
   ['omnitech-basic-omnitraction'] = true,
   ['basic-automation'] = true,
-  ['simple-automation'] = true,
+  ['omnitech-simple-automation'] = true,
   ['landfill'] = true
 }
 
@@ -151,11 +151,11 @@ for _, pipes in pairs(data.raw.item) do
 		elseif pipes.name == "brass-pipe" or pipes.name == "ceramic-pipe" 
 			then tier = 4 techreq =	{"omnitech-omnidrill-3"}		-- +15%
 		elseif pipes.name == "titanium-pipe" 
-			then tier = 5 techreq =	{"drilling-equipment-brass-pipe","drilling-equipment-ceramic-pipe"}		-- +15%
+			then tier = 5 techreq =	{"omnitech-drilling-equipment-brass-pipe","omnitech-drilling-equipment-ceramic-pipe"}		-- +15%
 		elseif pipes.name == "tungsten-pipe" or pipes.name == "nitinol-pipe" 
-			then tier = 6 techreq =	{"drilling-equipment-titanium-pipe"} -- +15%
+			then tier = 6 techreq =	{"omnitech-drilling-equipment-titanium-pipe"} -- +15%
 		elseif pipes.name == "copper-tungsten-pipe"
-			then tier = 7 techreq =	{"drilling-equipment-tungsten-pipe","drilling-equipment-nitinol-pipe"} -- +15%
+			then tier = 7 techreq =	{"omnitech-drilling-equipment-tungsten-pipe","omnitech-drilling-equipment-nitinol-pipe"} -- +15%
 		else tier = 1
 		end
 		
@@ -179,7 +179,7 @@ for _, pipes in pairs(data.raw.item) do
 		if tier == 1 then
 			drillrec:setTechName("omnitech-omnidrill-1")
 		else
-			drillrec:setTechName("drilling-equipment-"..pipes.name):
+			drillrec:setTechName("omnitech-drilling-equipment-"..pipes.name):
 			setTechPacks(2+math.floor(tier/2)):
 			setTechCost(25+math.floor((tier/2)*25)):
 			setTechTime(15):
@@ -212,9 +212,8 @@ end
 -- Add Omnicompressor Recipes
 for i, rec in pairs(data.raw.recipe) do		
 	if rec.category == "angels-chemical-void" and string.find(rec.name,"gas") then
-	data:extend(
-		{
-		{
+	data:extend({
+	{
 		type = "recipe",
 		name = "omnisea-void-"..rec.name,
 		category = "omnisea-chemical-void",
@@ -230,9 +229,8 @@ for i, rec in pairs(data.raw.recipe) do
 		icon = rec.icon,
 		icon_size = 32,
 		order = "omnisea-void-"..rec.name
-		},
-		}
-		)
-		table.insert( data.raw["technology"]["omnitech-omnidrill-1"].effects, { type = "unlock-recipe", recipe = "omnisea-void-"..rec.name	} )
+	}
+	})
+	omni.lib.add_prerequisite("omnitech-omnidrill-1", "omnisea-void-"..rec.name)
 	end
 end

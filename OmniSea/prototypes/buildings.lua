@@ -250,6 +250,6 @@ data:extend(
 	},
 }
 )
-table.insert( data.raw["technology"]["omnitech-omnidrill-1"].effects, { type = "unlock-recipe", recipe = "omnicompressor"	} )
+omni.lib.add_unlock_recipe("omnitech-omnidrill-1","omnicompressor")
 
 

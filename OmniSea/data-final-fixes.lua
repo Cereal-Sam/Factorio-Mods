@@ -1,5 +1,5 @@
 --Move the Basic Extraction (and water-omnitraction)research behind the tutorial ones
-omni.lib.add_prerequisite("base-impure-extraction", tech4)
+omni.lib.add_prerequisite("omnitech-base-impure-extraction", tech4)
 
 --Disable Mineralized-Water crystallization
 RecGen:import("sb-water-mineralized-crystallization"):setEnabled(false):extend()
