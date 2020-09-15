@@ -43,9 +43,12 @@ local omnisludge = RecChain:create("OmniSea","hypomnic-water-omnitraction"):
 	setTechName("omnitech-hypomnic-water-omnitraction"):
 	extend()
 	
-
+--TODO: replace after omni update
 --If Omniwater isnt present, add Viscous Mud Water extraction + Research
 if not mods["omnimatter_water"] then
+
+	--omni.add_omniwater_extraction("OmniSea", "water-viscous-mud", omni.fluid_levels, 2, 90, false)
+
 	local get_mud_req=function(lvl)
     	local req = {}
     	req[#req+1]="omnitech-omnic-acid-hydrolyzation-"..lvl
