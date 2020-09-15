@@ -128,11 +128,18 @@ end
 
 --Omnienergy: Remove the lab from Startup-3 unlocks, fix anbaric lab unlocks until zelos does, add unlock for boiler,
 if mods["omnimatter_energy"]  and false then
-	TechGen:importIf("bio-wood-processing"):removeUnlocks("sct-lab-t1","sct-lab1-construction","sct-lab1-mechanization"):extend()
-	TechGen:importIf("anbaric-lab"):addUnlocksExists("sct-lab1-construction","sct-lab1-mechanization"):extend()
-	TechGen:importIf("bio-wood-processing"):removeUnlocks("lab"):extend()
-	RecGen:import("burner-generator"):setEnabled(false):extend()
-	TechGen:importIf(tech4):addUnlocks("burner-generator"):removeUnlocks("electric-mining-drill","boiler","steam-engine"):extend()
+	omni.lib.remove_unlock_recipe("bio-wood-processing", "sct-lab-t1")
+	omni.lib.remove_unlock_recipe("bio-wood-processing", "sct-lab1-construction")
+	omni.lib.remove_unlock_recipe("bio-wood-processing", "sct-lab1-mechanization")
+	omni.lib.remove_unlock_recipe("bio-wood-processing", "lab")
+
+	omni.lib.add_unlock_recipe("anbaric-lab", "sct-lab1-construction")
+	omni.lib.add_unlock_recipe("anbaric-lab", "sct-lab1-mechanization")
+
+	omni.lib.disable_recipe("burner-generator")
+	omni.lib.remove_unlock_recipe(tech4, "electric-mining-drill")
+	omni.lib.remove_unlock_recipe(tech4, "boiler")
+	omni.lib.remove_unlock_recipe(tech4, "steam-engine")
 
 	--Omnienergy: Add prereq to basic-logistics
 	if data.raw.technology["basic-logistics"] then
@@ -218,7 +225,6 @@ for i, rec in pairs(data.raw.recipe) do
 		name = "omnisea-void-"..rec.name,
 		category = "omnisea-chemical-void",
 		enabled = "false",
-		--hidden = void_hidden,
 		energy_required = 1,
 		ingredients = rec.ingredients, --100
 		results=

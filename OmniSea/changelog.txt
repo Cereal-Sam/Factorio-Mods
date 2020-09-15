@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
 Version: 4.0.0
-Date: 2020.09.xx
+Date: 2020.09.15
   Changes:
     - Updated for Factorio version 1.0
     - Updated for current versions of Seablock and Omnimatter
