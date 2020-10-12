@@ -1,4 +1,6 @@
---Omnitractor
+---------------
+--Omnitractor--
+---------------
 
 --Hypomnic Water + Research
 local get_hypomnic_req=function(lvl)
@@ -17,7 +19,6 @@ local get_hypomnic_req=function(lvl)
     end
     return req
 end
-
 
 local cost = OmniGen:create():
     setYield("hypomnic-water"):
@@ -60,8 +61,9 @@ RecGen:create("OmniSea","petromnic-waste-water-recycling"):
 	marathon():
 	extend()
 
-
---Omnidensator
+----------------
+--Omnidensator--
+----------------
 RecGen:create("OmniSea","omnic-water-condensation"):
 	setIngredients():
 	setIcons("omnic-water"):
@@ -73,23 +75,9 @@ RecGen:create("OmniSea","omnic-water-condensation"):
 	marathon():
 	extend()
 
-	
---Omnidrill	
---[[	
-RecGen:create("OmniSea","omnic-water-fracking"):
-	setIngredients({type="fluid",name="steam",amount=40}, {type="item",name="stone-pipe",amount=2}):  -- todo
-	setIcons("omnic-water"):
-	setResults({type="fluid",name="omnic-water",amount=512}):
-	setEnergy(2.0):
-	setCategory("omnidrilling"):
-	setSubgroup("omnisea-fluid-generation"):
-	setTechName("omnidrill-1"):
-	marathon():
-	extend()
---]]
-	
---Filtration Unit
-
+-------------------
+--Filtration Unit--
+-------------------
 RecGen:create("OmniSea","omnic-waste-filtering-1"):
 	setIngredients({type="fluid",name="omnic-waste",amount=160}, {type="fluid",name="water-purified",amount=80}, {type="item", name="filter-coal", amount=1}):
 	setIcons("slag-filtering-1"):
@@ -138,9 +126,9 @@ RecGen:create("OmniSea","lithomnic-water-filtering-2"):
 	marathon():
 	extend()
 	
-	
---Crystallizer
-
+----------------
+--Crystallizer--
+----------------
 RecGen:create("OmniSea","crystallizing-to-omnite-1"):
 	setIngredients({type="fluid",name="omnic-waste",amount=120}):
 	setIcons("omnite"):
@@ -163,9 +151,9 @@ RecGen:create("OmniSea","crystallizing-to-omnite-2"):
 	marathon():
 	extend()
 	
-	
---Omniplant
-
+-------------
+--Omniplant--
+-------------
 RecGen:create("OmniSea","lithomnic-water-enrichment"):
 	setIngredients({type="fluid",name="hypomnic-water",amount=135}, {type="fluid",name="hydrosalinic-water",amount=50}):
 	setIcons("lithomnic-water"):
@@ -176,7 +164,6 @@ RecGen:create("OmniSea","lithomnic-water-enrichment"):
 	setTechName("omnitech-hypomnic-water-omnitraction-1"):
 	marathon():
 	extend()
-
 
 RecGen:create("OmniSea","hydrosalinic-water-enrichment"):
 	setIngredients({type="fluid",name="hydromnic-acid",amount=125}, {type="fluid",name="water-saline",amount=75}, {type="item",name="stone-crushed",amount=4}):
