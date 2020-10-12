@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 4.0.2
+Date: ????
+  Changes:
+    - Internal cleanup, use omnilib´s function to add viscous mud water extraction techs + recipes
+---------------------------------------------------------------------------------------------------
 Version: 4.0.1
 Date: 2020.09.15
   Changes:
@@ -42,9 +47,11 @@ Version: 2.3.2
 Version: 2.3.1
   Features:
     - Completely reworked the Omnidrill recipes
-    - Added an "Omnicompressor" which turns every "gas" type liquid into Coromnic Vapour, which replaces steam in the Omnidrill
+    - Added an "Omnicompressor" which turns every "gas" type liquid into Coromnic Vapour,
+      - which replaces steam in the Omnidrill
     - Added recipes and researches for all Bob�s Mod pipes to the Omnidrill
-    - Increased the crafting speed of the Omnidrills and Omnidensators to better fit with other Omni-Buildings
+    - Increased the crafting speed of the Omnidrills and Omnidensators to better fit with other
+      - Omni-Buildings
     - Increased the recipe duration for both buildings to compensate the crafting speed changes
 ---------------------------------------------------------------------------------------------------
 Version: 2.2.11
@@ -53,7 +60,8 @@ Version: 2.2.11
 ---------------------------------------------------------------------------------------------------
 Version: 2.2.10
   Bugfixes:
-    - Removed the Boiler,Steam Engine and Electric Mining Drill recipe Unlock from the 4. Tutorial tech if Omnienergy is installed
+    - Removed the Boiler,Steam Engine and Electric Mining Drill recipe Unlock from the 
+      - 4. Tutorial tech if Omnienergy is installed
 ---------------------------------------------------------------------------------------------------
 Version: 2.2.9
   Bugfixes:
@@ -62,7 +70,8 @@ Version: 2.2.9
 Version: 2.2.8
   Features:
     - Omnienergys Burner generator now unlocks with the 4. tutorial tech
-    - Changed Pretomnic waste water ratios so you end up with a surplus of normal water at the end of the Hypomnic water extraction chain
+    - Changed Pretomnic waste water ratios so you end up with a surplus of normal water at the end 
+      - of the Hypomnic water extraction chain
   Bugfixes:
     - Fixed that the Omnitor Lab didnt accept any fuel
     - Fixed that the vanilla Lab unlocks with Startup-3 tech when omnienergy is installed
@@ -129,7 +138,8 @@ Version: 2.0.4
   Features:
     - Complete Rewrite, this will break your saves!
     - Complete new production chains:
-    - All the Water arround you is not usable, you depend on condensating Omnic Water very inefficiently from the air or drilling it deep out of the ground and process it
+    - All the Water arround you is not usable, you depend on condensating Omnic Water very 
+      - inefficiently from the air or drilling it deep out of the ground and process it
     - Added the "Omnidensator" and "Omnidrill"
     - Added a bunch of liquids, recipes and researches to process Omnic Water
 ---------------------------------------------------------------------------------------------------

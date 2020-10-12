@@ -43,52 +43,9 @@ local omnisludge = RecChain:create("OmniSea","hypomnic-water-omnitraction"):
 	setTechName("omnitech-hypomnic-water-omnitraction"):
 	extend()
 	
---TODO: replace after omni update
---If Omniwater isnt present, add Viscous Mud Water extraction + Research
+--If Omniwater is not present, add Viscous Mud Water extraction + Research
 if not mods["omnimatter_water"] then
-
-	--omni.add_omniwater_extraction("OmniSea", "water-viscous-mud", omni.fluid_levels, 2, 90, false)
-
-	local get_mud_req=function(lvl)
-    	local req = {}
-    	req[#req+1]="omnitech-omnic-acid-hydrolyzation-"..lvl
-    	if (lvl-1)%omni.fluid_levels_per_tier == 0 then
-        	req[#req+1]="omnitech-omnitractor-electric-"..((lvl-1)/omni.fluid_levels_per_tier+1)
-        	if lvl > 1 and omni.fluid_dependency < omni.fluid_levels_per_tier then
-            	req[#req+1]="omnitech-omnisolvent-omnisludge-"..(lvl-1)
-        	end
-    	else
-        	req[#req+1]="omnitech-omnisolvent-omnisludge-"..(lvl-1)
-    	end
-    	if lvl > 1 then
-        	req[#req+1]="omnitech-viscous-mud-water-omnitraction-"..(lvl-1)
-    	end
-    	return req
-	end
-
-	local cost = OmniGen:create():
-    	setYield("water-viscous-mud"):
-    	setIngredients({type="fluid",name="omnic-water",amount=360*2}):
-    	setWaste("water"):
-    	linearPercentOutput(720,0.5,1)
-	local omnisludge = RecChain:create("OmniSea","viscous-mud-water-omnitraction"):
-		setName("viscous-mud-water-omnitraction"):
-		setIngredients(cost:ingredients()):
-		setCategory("omnite-extraction-both"):
-		setIcons("water-viscous-mud","angelsrefining"):
-		setMain("water-viscous-mud"):
-		setResults(cost:results()):
-		setSubgroup("omnisea-fluids"):
-		setLevel(omni.fluid_levels):
-		setEnergy(function(levels,grade) return 6 end):
-		setEnabled(function(levels,grade) return grade == 0 end):
-		setTechIcon("OmniSea","water-viscous-mud-tech"):
-		setTechCost(function(levels,grade) return 25+math.floor(grade/0.09) end ):
-		setTechPacks(function(levels,grade) return 1+math.floor(grade/2.2) end ):
-		setTechPrereq(function(levels,grade) return get_mud_req(grade)  end):
-		setTechTime(15):
-		setTechName("omnitech-viscous-mud-water-omnitraction"):
-		extend()	
+	omni.add_omniwater_extraction("OmniSea", "water-viscous-mud", omni.fluid_levels, 2, 90, false)	
 end
 
 -- Petromnic Waste Water
