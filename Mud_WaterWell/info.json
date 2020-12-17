@@ -1,0 +1,13 @@
+{
+"name":"Mud_WaterWell",
+"author":"Samuel",
+"version":"1.6.0",
+"title":"Mud Water well pump",
+"description":"Adds a Mud Water well pump that pumps Viscous Mud Water, extends Water-Well Mod by BinbinHfr",
+"factorio_version":"1.1",
+"dependencies": [
+	"base >= 1.1.0",
+	"WaterWell",
+	"angelssmelting",
+	"angelsrefining"
+]}
