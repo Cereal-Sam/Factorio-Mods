@@ -3,25 +3,16 @@ if data.raw.technology["sct-automation-science-pack"] then
 else
 	tech4 = "sb-startup4"
 end
-	
---Make water green!
-data.raw.tile["water"].variants = data.raw.tile["water-green"].variants
-data.raw.tile["deepwater"].variants = data.raw.tile["deepwater-green"].variants
-data.raw.tile["water"].map_color = data.raw.tile["water-green"].map_color
-data.raw.tile["deepwater"].map_color = data.raw.tile["deepwater-green"].map_color
-data.raw.tile["water"].effect = data.raw.tile["water-green"].effect
-data.raw.tile["deepwater"].effect = data.raw.tile["deepwater-green"].effect
-data.raw.tile["water"].effect_color = data.raw.tile["water-green"].effect_color
-data.raw.tile["deepwater"].effect_color = data.raw.tile["deepwater-green"].effect_color
-data.raw.tile["water"].transitions = data.raw.tile["water-green"].transitions
-data.raw.tile["deepwater"].transitions = data.raw.tile["deepwater-green"].transitions
-
 
 -- No free Water!
 data.raw.recipe["offshore-pump"].enabled = false
 
 --Remove Angels Seafloor pump and add a prereq to washing-1
 omni.lib.remove_unlock_recipe("water-washing-1", "seafloor-pump")
+
+--Set initial omnitraction recipes (saph+stir) to be craftable in an electric omnitractor aswell
+data.raw.recipe["initial-omnitraction-angels-ore1"].category = "omnite-extraction-both"
+data.raw.recipe["initial-omnitraction-angels-ore3"].category = "omnite-extraction-both"
 
 --Edit startup tech
 -- Startup 1
@@ -30,7 +21,7 @@ data.raw.tool["sb-angelsore3-tool"].localised_name = {"item-name.omnite"}
 data.raw.tool["sb-angelsore3-tool"].localised_description = "Get Omnite to complete this research."
 data.raw.technology["sb-startup1"].icon = "__OmniSea__/graphics/technology/omnite-tech.png"
 data.raw.technology["sb-startup1"].localised_name = "Getting Omnite"
-data.raw.technology["sb-startup1"].localised_description = "You can use a Crystallizer to turn Omnic Waste into Omnite at a low yield."
+data.raw.technology["sb-startup1"].localised_description = "Use an omnidensator to condensate omnic water out of the air. You can condense omnic waste out of omnic water which you you can into omnite at a low yield."
 
 --Startup 2&4
 if mods["omnimatter_energy"] then
@@ -56,19 +47,14 @@ if mods["omnimatter_energy"] then
 	data.raw.technology[tech4].localised_description = "Omnitor Labs are the first step of your evolution."
 end
 
--- Remove Coal from the Omnimatter table to disable all Coal extractions 
--- for _,tier in pairs(omnisource) do
--- 	if tier["coal"] then tier["coal"]=nil 
--- 	end
--- end
-
 --Add Slag Processing 2 as prereq. for Hypomnic Water Omnitraction
 omni.lib.add_prerequisite("omnitech-hypomnic-water-omnitraction-1", "slag-processing-2")
 
 --Stop Seablock from adding my omnic-water-condensation recipe to a tech
 omni.lib.remove_unlock_recipe(tech4 , "omnic-water-condensation")
-data.raw.recipe["omnic-water-condensation"].normal.enabled = true
-data.raw.recipe["omnic-water-condensation"].expensive.enabled = true
+omni.lib.remove_unlock_recipe(tech4 , "omnidensator-1")
+omni.lib.enable_recipe("omnidensator-1")
+omni.lib.enable_recipe("omnic-water-condensation")
 
 -- --Omniwater/Omniwood compat:Avoid Research cycle
 -- if data.raw.technology["omniwaste"] then

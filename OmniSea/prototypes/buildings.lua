@@ -1,6 +1,5 @@
---Omnidensator  tech here atm, needs to be moved to technology.lua
-
 BuildGen:create("OmniSea","omnidensator-1"):
+	noTech():
 	setStacksize(10):
 	setFluidBox("XXXXX.XXXXX.XXXXX.XXXXX.XXKXX"):
 	setIngredients({"iron-plate",10},{"iron-stick",5},{"copper-pipe",5},{"stone-brick",5},{"basic-circuit-board",5}):
