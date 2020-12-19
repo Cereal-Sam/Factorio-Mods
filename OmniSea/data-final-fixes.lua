@@ -2,7 +2,10 @@
 omni.lib.add_prerequisite("omnitech-base-impure-extraction", tech4)
 
 --Disable Mineralized-Water crystallization
-RecGen:import("sb-water-mineralized-crystallization"):setEnabled(false):extend()
+RecGen:import("sb-water-mineralized-crystallization"):
+	setEnabled(false):
+	noTech():
+	extend()
 
 --Final energy compat
 if mods["omnimatter_energy"] then

@@ -36,7 +36,7 @@ local omnisludge = RecChain:create("OmniSea","hypomnic-water-omnitraction"):
 	setLevel(omni.fluid_levels):
 	setEnergy(function(levels,grade) return 4 end):
 	setEnabled(function(levels,grade) return grade == 0 end):
-	setTechIcon("OmniSea","hypomnic-water-omnitraction-tech"):
+	setTechIcons("hypomnic-water-omnitraction-tech","OmniSea"):
 	setTechCost(function(levels,grade) return 25+math.floor(grade/0.022) end ):
 	setTechPacks(function(levels,grade) return 2+math.floor(grade/2.2) end ):
 	setTechPrereq(function(levels,grade) return get_hypomnic_req(grade)  end):
@@ -58,7 +58,6 @@ RecGen:create("OmniSea","petromnic-waste-water-recycling"):
 	setCategory("omnite-extraction-both"):
 	setSubgroup("omnisea-fluids"):
 	setTechName("omnitech-hypomnic-water-omnitraction-1"):
-	marathon():
 	extend()
 
 ----------------
@@ -71,8 +70,7 @@ RecGen:create("OmniSea","omnic-water-condensation"):
 	setEnergy(4.0):
 	setCategory("omnidensating"):
 	setSubgroup("omnisea-fluid-generation"):
-	setEnabled():
-	marathon():
+	setEnabled(true):
 	extend()
 
 -------------------
@@ -87,7 +85,6 @@ RecGen:create("OmniSea","omnic-waste-filtering-1"):
 	setSubgroup("omnisea-filtration"):
 	setTechName("slag-processing-1"):
 	setOrder("a-a"):
-	marathon():
 	extend()
 	
 RecGen:create("OmniSea","omnic-waste-filtering-2"):
@@ -99,7 +96,6 @@ RecGen:create("OmniSea","omnic-waste-filtering-2"):
 	setSubgroup("omnisea-filtration"):
 	setTechName("slag-processing-2"):
 	setOrder("a-b"):
-	marathon():
 	extend()
 	
 RecGen:create("OmniSea","lithomnic-water-filtering-1"):
@@ -111,7 +107,6 @@ RecGen:create("OmniSea","lithomnic-water-filtering-1"):
 	setSubgroup("omnisea-filtration"):
 	setTechName("omnitech-hypomnic-water-omnitraction-1"):
 	setOrder("a-c"):
-	marathon():
 	extend()
 	
 RecGen:create("OmniSea","lithomnic-water-filtering-2"):
@@ -123,7 +118,6 @@ RecGen:create("OmniSea","lithomnic-water-filtering-2"):
 	setSubgroup("omnisea-filtration"):
 	setTechName("omnitech-hypomnic-water-omnitraction-1"):
 	setOrder("a-d"):
-	marathon():
 	extend()
 	
 ----------------
@@ -136,8 +130,7 @@ RecGen:create("OmniSea","crystallizing-to-omnite-1"):
 	setEnergy(2.0):
 	setCategory("crystallizing"):
 	setSubgroup("omnisea-crystallizing"):
-	setEnabled():
-	marathon():
+	setEnabled(true):
 	extend()
 
 RecGen:create("OmniSea","crystallizing-to-omnite-2"):
@@ -148,7 +141,6 @@ RecGen:create("OmniSea","crystallizing-to-omnite-2"):
 	setCategory("crystallizing"):
 	setSubgroup("omnisea-crystallizing"):
 	setTechName("slag-processing-1"):
-	marathon():
 	extend()
 	
 -------------
@@ -162,7 +154,6 @@ RecGen:create("OmniSea","lithomnic-water-enrichment"):
 	setCategory("omniplant"):
 	setSubgroup("omnisea-fluids"):
 	setTechName("omnitech-hypomnic-water-omnitraction-1"):
-	marathon():
 	extend()
 
 RecGen:create("OmniSea","hydrosalinic-water-enrichment"):
@@ -173,5 +164,4 @@ RecGen:create("OmniSea","hydrosalinic-water-enrichment"):
 	setCategory("omniplant"):
 	setSubgroup("omnisea-fluids"):
 	setTechName("omnitech-hypomnic-water-omnitraction-1"):
-	marathon():
 	extend()

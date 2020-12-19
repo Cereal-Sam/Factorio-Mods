@@ -190,7 +190,7 @@ for _, pipes in pairs(data.raw.item) do
 			setTechPacks(2+math.floor(tier/2)):
 			setTechCost(25+math.floor((tier/2)*25)):
 			setTechTime(15):
-			setTechIcon("OmniSea","tech-"..pipes.name)
+			setTechIcons("tech-"..pipes.name,"OmniSea")
 		end
 		drillrec:setTechPrereq(techreq)
 		drillrec:extend()

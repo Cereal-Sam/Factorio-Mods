@@ -1,6 +1,8 @@
 ---------------------------------------------------------------------------------------------------
-Version: 4.0.2
-Date: ????
+Version: 4.1.0
+Date: 2020.12.xx
+  Info:
+    - Update for factorio version 1.1
   Changes:
     - Internal cleanup, use omnilib´s function to add viscous mud water extraction techs + recipes
 ---------------------------------------------------------------------------------------------------
