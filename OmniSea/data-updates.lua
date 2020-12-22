@@ -1,9 +1,3 @@
-if data.raw.technology["sct-automation-science-pack"] then
-	tech4 = "sct-automation-science-pack"
-else
-	tech4 = "sb-startup4"
-end
-
 -- No free Water!
 data.raw.recipe["offshore-pump"].enabled = false
 
@@ -23,43 +17,19 @@ data.raw.technology["sb-startup1"].icon = "__OmniSea__/graphics/technology/omnit
 data.raw.technology["sb-startup1"].localised_name = "Getting Omnite"
 data.raw.technology["sb-startup1"].localised_description = "Use an omnidensator to condensate omnic water out of the air. You can condense omnic waste out of omnic water which you you can into omnite at a low yield."
 
---Startup 2&4
-if mods["omnimatter_energy"] then
-	data.raw.tool["sb-basic-circuit-board-tool"].icon = nil
-	data.raw.tool["sb-basic-circuit-board-tool"].icon_size = nil
-	data.raw.tool["sb-basic-circuit-board-tool"].icons = data.raw.item["omnitor"].icons
-	data.raw.tool["sb-basic-circuit-board-tool"].localised_name = {"item-name.omnitor"}
-	data.raw.tool["sb-basic-circuit-board-tool"].localised_description = "Get an Omnitor to complete this research."
-
-	data.raw.technology["sb-startup2"].icon = nil
-	data.raw.technology["sb-startup2"].icon_size = nil
-	data.raw.technology["sb-startup2"].icons = data.raw.item["omnitor"].icons
-	data.raw.technology["sb-startup2"].localised_name = "Omnitor"
-	data.raw.technology["sb-startup2"].localised_description = "Omnitors are the source for basic automation."
-	
-	data.raw.tool["sb-lab-tool"].icon = "__omnimatter_energy__/graphics/icons/omnitor-lab.png"
-	data.raw.tool["sb-lab-tool"].icon_size = 32
-	data.raw.tool["sb-lab-tool"].localised_name = {"entity-name.omnitor-lab"}
-	data.raw.tool["sb-lab-tool"].localised_description = "Get an Omnitor Lab to complete this research."
-	
-	data.raw.technology[tech4].icon = "__OmniSea__/graphics/technology/omnitor-lab-tech.png"
-	data.raw.technology[tech4].localised_name = "Laboratory"
-	data.raw.technology[tech4].localised_description = "Omnitor Labs are the first step of your evolution."
-end
-
 --Add Slag Processing 2 as prereq. for Hypomnic Water Omnitraction
 omni.lib.add_prerequisite("omnitech-hypomnic-water-omnitraction-1", "slag-processing-2")
 
 --Stop Seablock from adding my omnic-water-condensation recipe to a tech
-omni.lib.remove_unlock_recipe(tech4 , "omnic-water-condensation")
-omni.lib.remove_unlock_recipe(tech4 , "omnidensator-1")
+omni.lib.remove_unlock_recipe(omni.sea.tech4 , "omnic-water-condensation")
+omni.lib.remove_unlock_recipe(omni.sea.tech4 , "omnidensator-1")
 omni.lib.enable_recipe("omnidensator-1")
 omni.lib.enable_recipe("omnic-water-condensation")
 
 -- --Omniwater/Omniwood compat:Avoid Research cycle
 -- if data.raw.technology["omniwaste"] then
 --     data.raw.technology["omniwaste"].prerequisites = nil 
---     data.raw.technology["omniwaste"].prerequisites = {tech4}  
+--     data.raw.technology["omniwaste"].prerequisites = {omni.sea.tech4}  
 -- end
 
 --Omniwood compat: Add an early low-yield omnialgae recipe and fix the fuel value of wood
@@ -108,28 +78,7 @@ local startuptechs = {
 
 for _,tech in pairs(data.raw.technology) do
 	if startuptechs[tech.name] and omni.lib.is_in_table("slag-processing-1",tech.prerequisites) then
-		omni.lib.replace_prerequisite(tech.name,"slag-processing-1", tech4)
-	end
-end
-
---Omnienergy: Remove the lab from Startup-3 unlocks, fix anbaric lab unlocks until zelos does, add unlock for boiler,
-if mods["omnimatter_energy"]  and false then
-	omni.lib.remove_unlock_recipe("bio-wood-processing", "sct-lab-t1")
-	omni.lib.remove_unlock_recipe("bio-wood-processing", "sct-lab1-construction")
-	omni.lib.remove_unlock_recipe("bio-wood-processing", "sct-lab1-mechanization")
-	omni.lib.remove_unlock_recipe("bio-wood-processing", "lab")
-
-	omni.lib.add_unlock_recipe("anbaric-lab", "sct-lab1-construction")
-	omni.lib.add_unlock_recipe("anbaric-lab", "sct-lab1-mechanization")
-
-	omni.lib.disable_recipe("burner-generator")
-	omni.lib.remove_unlock_recipe(tech4, "electric-mining-drill")
-	omni.lib.remove_unlock_recipe(tech4, "boiler")
-	omni.lib.remove_unlock_recipe(tech4, "steam-engine")
-
-	--Omnienergy: Add prereq to basic-logistics
-	if data.raw.technology["basic-logistics"] then
-		omni.lib.replace_prerequisite("basic-logistics","sb-startup1", tech4)
+		omni.lib.replace_prerequisite(tech.name,"slag-processing-1", omni.sea.tech4)
 	end
 end
 

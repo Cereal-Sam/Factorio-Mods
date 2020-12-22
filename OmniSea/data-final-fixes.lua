@@ -1,5 +1,7 @@
+require("prototypes.compat.omnienergy")
+
 --Move the Basic Extraction (and water-omnitraction)research behind the tutorial ones
-omni.lib.add_prerequisite("omnitech-base-impure-extraction", tech4)
+omni.lib.add_prerequisite("omnitech-base-impure-extraction", omni.sea.tech4)
 
 --Disable Mineralized-Water crystallization
 RecGen:import("sb-water-mineralized-crystallization"):
@@ -8,12 +10,7 @@ RecGen:import("sb-water-mineralized-crystallization"):
 	extend()
 
 --Final energy compat
-if mods["omnimatter_energy"] then
-	--Energy adds anabracity as prereq for everything without prereqs, remove that rom sb-startup-1 to avoid loops
-	omni.lib.remove_prerequisite("sb-startup1", "omnitech-anbaricity")
-	omni.lib.remove_prerequisite("sct-lab-t2", "electronics")
-	
-else
+if not mods["omnimatter_energy"] then
 	-- Remove the fuel value of Omnite and crushed Omnite without omni energy
 	local remfuel = {
 		"omnite",

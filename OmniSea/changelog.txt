@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
 Version: 4.1.0
-Date: 2020.12.xx
+Date: 2020.12.22
   Info:
     - Update for factorio version 1.1
   Changes:
@@ -9,6 +9,7 @@ Date: 2020.12.xx
     - Start with 1 clarifier to setup the initial omnite setup without crafting anything
     - Water is blue again since pollution makes it green now anyways
     - Disabled coal extractions (no cheaty power!)
+    - Cleaned up the tech tree
 ---------------------------------------------------------------------------------------------------
 Version: 4.0.1
 Date: 2020.09.15
