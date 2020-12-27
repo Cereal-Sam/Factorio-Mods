@@ -1,0 +1,3 @@
+files:
+  - source: /OmniSea/locale/en.cfg
+    translation: /OmniSea/locale/%language%.cfg
