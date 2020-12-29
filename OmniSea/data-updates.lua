@@ -111,7 +111,7 @@ for _, pipes in pairs(data.raw.item) do
 	local drillrec = RecGen:create("OmniSea","omnic-water-fracking-".. pipes.name):
 		setIngredients({type="fluid",name="coromnic-vapour",amount=100}, {type="item",name= pipes.name,amount=1}):
 		setIcons("omnic-water"):
-		addSmallIcon(pipes.icon, 3):
+		addSmallIcon(pipes.icon or pipes.icons, 3):
 		setResults({type="fluid",name="omnic-water",amount=(baseout + bonus)}):
 		setEnergy(4.0):
 		setCategory("omnidrilling"):
