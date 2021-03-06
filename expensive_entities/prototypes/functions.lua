@@ -133,6 +133,17 @@ function e_e.standardise(recipe)
         recipe.normal.main_product = recipe.main_product
         recipe.expensive.main_product = recipe.main_product
         recipe.main_product = nil
+
+        --copy .enabled into normal/expensive
+        if recipe.enabled ~= nil then
+            recipe.normal.enabled = recipe.enabled
+            recipe.expensive.enabled = recipe.enabled
+        end
+
+        --catch recipes that only have .normal filled
+        if recipe.expensive.enabled == nil and recipe.normal.enabled ~= nil then
+            recipe.expensive.enabled = recipe.normal.enabled
+        end
     end
 end
 
