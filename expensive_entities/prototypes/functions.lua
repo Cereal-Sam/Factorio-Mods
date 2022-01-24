@@ -1,12 +1,93 @@
+--Proto type list, can be split for further setting options
+local ent_all = {
+    "accumulator",
+    "arithmetic-combinator",
+    "ammo-turret",
+    "artillery-turret",
+    "artillery-wagon",
+    "assembling-machine",
+    "beacon",
+    "boiler",
+    "car",
+    "cargo-wagon",
+    "combat-robot",
+    "constant-combinator",
+    "construction-robot",
+    "container",
+    "curved-rail",
+    "decider-combinator",
+    "electric-pole",
+    "electric-turret",
+    "fluid-turret",
+    "fluid-wagon",
+    "furnace",
+    "gate",
+    "generator",
+    "heat-pipe",
+    "inserter",
+    "lab",
+    "land-mine",
+    "lamp",
+    "loader",
+    "loader-1x1",
+    "locomotive",
+    "logistic-container",
+    "logistic-robot",
+    "mining-drill",
+    "offshore-pump",
+    "pipe",
+    "pipe-to-ground",
+    "power-switch",
+    "programmable-speaker",
+    "pump",
+    "radar",
+    "rail-signal",
+    "rail-chain-signal",
+    "reactor",
+    "roboport",
+    "rocket-silo",
+    "solar-panel",
+    "splitter",
+    "storage-tank",
+    "straight-rail",
+    "train-stop",
+    "transport-belt",
+    "turret",
+    "underground-belt",
+    "wall"
+}
+
+--Analyse functions
+function e_e.find_prototype(name)
+    if type(name)=="table" then return name elseif type(name)~="string" then return nil end
+    for _, p in pairs(ent_all) do
+        if data.raw[p][name] then return data.raw[p][name] end
+    end
+    return nil
+end
+
+function e_e.include_recipe(rec_name)
+    if rec_name then
+        e_e.included_recipes[rec_name] =
+        {
+        name = rec_name,
+        linear = false,
+        exponential = false,
+        progression = false,
+        progression_tier = 1 --Default to 1, if unlocked by tech this gets overwritten
+        }
+    end
+end
+
 --Misc functions
 function e_e.remove_from_table(tab, element)
     if tab and element then
         local found = false
-		for i, x in pairs(tab) do
+        for i, x in pairs(tab) do
             if x == element then
                 found = true
-			    table.remove(tab,i)
-		        break
+                table.remove(tab,i)
+                break
             end
         end
         if not found then log("Could not remove "..element.." from table") end
@@ -16,9 +97,9 @@ end
 function e_e.is_in_table(tab, element)
     if tab and element then
         local found = false
-		for _, x in pairs(tab) do
-			if x == element then 
-		    		found = true
+        for _, x in pairs(tab) do
+            if x == element then 
+                    found = true
                 break
             end
         end
@@ -147,25 +228,59 @@ function e_e.standardise(recipe)
     end
 end
 
---Analyse functions
-function e_e.find_prototype(name, proto_list)
-	if type(name)=="table" then return name elseif type(name)~="string" then return nil end
-	for _, p in pairs(proto_list) do
-		if data.raw[p][name] then return data.raw[p][name] end
-	end
-	return nil
+--Get all recipe ingredients that can be placed down / are entities
+function e_e.get_entity_ingredients(recipe)
+    local ings = e_e.get_ings(recipe)
+    local ents = {}
+    for _, ing in pairs(ings) do
+        if ing.name and e_e.find_prototype(ing.name) then
+            ents[#ents+1] = ing.name
+        end
+    end
+    return ents
 end
 
-function e_e.include_recipe(rec_name)
-    if rec_name then
-        e_e.included_recipes[rec_name] =
-        {
-        name = rec_name,
-        linear = false,
-        exponential = false,
-        progression = false,
-        progression_tier = 1 --Default to 1, if unlocked by tech this gets overwritten
-        }
+--Create a copy of the ingredient item and recipe
+function e_e.create_ingredient_copy(ingredient_name, pack)
+    local ing = data.raw.item[ingredient_name]
+    local recipe = data.raw.recipe[ingredient_name]
+    e_e.standardise(recipe)
+    if ing then
+        local new_ing = table.deepcopy(ing)
+        new_ing.name = "ee-sp-"..new_ing.name
+        new_ing.localised_name = omni.lib.locale.of(ing).name --new_ing.localised_name or {"item-name."..ing.name}
+        new_ing.place_result = nil
+        new_ing.subgroup = "science-pack-ingredients"
+        new_ing.order = "aa["..pack.."]"
+
+        local ic = omni.lib.icon.of(ing, true)
+        local small = omni.lib.icon.of(data.raw.recipe[pack], true)
+        local ic_sz = small[1].icon_size
+        ic[#ic+1] = {icon = small[1].icon, icon_size = ic_sz, scale = 0.4375*(small[1].scale or (32/ic_sz)), shift = {10, 10}}
+        new_ing.icons = ic
+        new_ing.icon = nil
+
+
+        local new_rec = table.deepcopy(recipe)
+        new_rec.name = "ee-sp-"..new_rec.name
+        new_rec.localised_name = omni.lib.locale.of(recipe).name  --new_ing.localised_name
+        new_rec.enabled = recipe.enabled
+        new_rec.normal.enabled = recipe.normal.enabled
+        new_rec.expensive.enabled = recipe.expensive.enabled
+        new_rec.subgroup = "science-pack-ingredients"
+        new_rec.order = "aa["..pack.."]"
+
+        ic = omni.lib.icon.of(recipe, true)
+        ic_sz = small[1].icon_size
+        ic[#ic+1] = {icon = small[1].icon, icon_size = ic_sz, scale = 0.4375*(small[1].scale or (32/ic_sz)), shift = {10, 10}}
+        new_rec.icons = ic
+        new_rec.icon = nil
+
+        data:extend({new_ing,new_rec})
+
+        omni.lib.replace_recipe_result(new_rec.name, ingredient_name, "ee-sp-"..ingredient_name)
+        local tech = omni.lib.get_tech_name(pack)
+        if tech then omni.lib.add_unlock_recipe(tech, new_rec.name) end
     end
 end
 
@@ -222,12 +337,12 @@ end
 -- 		--Analyse result
 --         for j, res in pairs(recipe.expensive.results) do
 --             local am = res.amount 
-                 
+
 -- 			result.component[res.name] = {amount = am, nr = j}
 -- 			result.total = result.total + am
 --             result.count = result.count + 1
 --         end
-        
+
 --         --Apply ingredient multiplier
 --         for j, ing in pairs(recipe.expensive.ingredients) do
 --             if ingredient.component[ing.name] then
