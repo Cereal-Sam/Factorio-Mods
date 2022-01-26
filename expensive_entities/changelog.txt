@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.4
+Date: 2022.01.26
+  Bugfixes:
+    - Affect science = False : Fixed that the ingredients of the ingredients of science pack
+      recipes were not checked and therefor not added to all science pack technologies
+---------------------------------------------------------------------------------------------------
 Version: 1.1.3
 Date: 2022.01.26
   Bugfixes:
