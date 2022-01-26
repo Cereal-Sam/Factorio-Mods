@@ -107,6 +107,21 @@ function e_e.is_in_table(tab, element)
     end
 end
 
+--Tech functions
+function e_e.get_all_techs(recipename)
+    local technames = {}
+    for _,tech in pairs(data.raw.technology) do
+        if tech.effects then
+            for _,eff in pairs(tech.effects) do
+                if eff.type == "unlock-recipe" and eff.recipe ==recipename then
+                    technames[#technames+1] = tech.name
+                end
+            end
+        end
+    end
+    return technames
+end
+
 --Recipe functions
 
 --Returns a standardised copy of all ingredients, prefers recipe.expensive

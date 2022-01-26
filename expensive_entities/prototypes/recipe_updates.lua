@@ -11,6 +11,9 @@ for _, recipe in pairs(e_e.check_science_pack) do
             if not data.raw.item["ee-sp-"..ing] then
                 e_e.create_ingredient_copy(ing, recipe)
                 check[#check+1] = ing
+            --Item/Recipe already exist for another science pack, add it here as unlock aswell
+            else
+                omni.lib.add_unlock_recipe(omni.lib.get_tech_name(recipe), "ee-sp-"..ing)
             end
             --If we are on the sciencepack recipe, we need to replace on the original, else on the copy
             if rec.name == recipe then

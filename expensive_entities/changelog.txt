@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.3
+Date: 2022.01.26
+  Bugfixes:
+    - Fixed that recipes of ingredients required for multiple science packs were only unlocked
+      with the technology of one science pack
+    - Fixed that certain ingredients were ignored when Affect science was false
+    - Fixed that ingredient copy recipes with without "Affect science" were always in the vanilla
+      item subgroup
+---------------------------------------------------------------------------------------------------
 Version: 1.1.2
 Date: 2022.01.24
   Info:

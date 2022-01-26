@@ -16,5 +16,4 @@ e_e.affect_science = settings.startup["e_e_affect_science"].value
 e_e.exclude_exp_ings = settings.startup["e_e_exclude_expensive_ingredients"].value
 
 
-require("prototypes/categories")
 require("prototypes/functions")
